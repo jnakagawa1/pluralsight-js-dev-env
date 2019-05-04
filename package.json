@@ -6,7 +6,13 @@
   "name": "javascript-development-environment",
   "version": "1.0.1",
   "description": "JavaScript development environment packages for use to build a Node.js project, obtained from: https://www.npmjs.com/search?q=",
-  "scripts": {},
+  "scripts": {
+    "prestart": "babel-node buildScripts/startMessage.js",
+    "start": "npm-run-all --parallel open:src",
+    "open:src": "babel-node buildScripts/srcServer.js",
+    "localtunnel": "lt --port 3000",
+    "share": "npm-run-all --parallel open:src localtunnel"
+  },
   "author": "Cory House",
   "license": "MIT",
   "dependencies": {
@@ -15,7 +21,10 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
-    "@babel/core": "^7.2.2",
+    "@babel/core": "^7.3.3",
+    "@babel/node": "^7.2.2",
+    "@babel/register": "^7.0.0",
+    "@babel/preset-env": "^7.3.1",
     "babel-loader": "^8.0.4",
     "babel-preset-env": "^1.7.0",
     "babel-register": "^6.26.0",
@@ -24,7 +33,7 @@
     "cheerio": "^1.0.0-rc.2",
     "compression": "^1.7.3",
     "cross-env": "^5.2.0",
-    "css-loader": "^2.0.1",
+    "css-loader": "^0.28.11",
     "eslint": "^5.10.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-watch": "^4.0.2",
@@ -42,9 +51,9 @@
     "open": "0.0.5",
     "rimraf": "^2.6.2",
     "style-loader": "^0.23.1",
-    "webpack": "^4.28.0",
-    "extract-text-webpack-plugin": "^3.0.2",
-    "webpack-dev-middleware": "^3.4.0",
+    "webpack": "^4.28.4",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "webpack-dev-middleware": "^3.5.0",
     "webpack-hot-middleware": "^2.24.3",
     "webpack-md5-hash": "0.0.6"
   },
