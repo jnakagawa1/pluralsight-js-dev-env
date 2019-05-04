@@ -3,7 +3,7 @@ import path from 'path';
 module.exports = {
   devtool: 'inline-source-map',
   entry: [
-    path.resolve(__dirname, 'index')
+    path.resolve(__dirname, 'src/index')
   ],
   target: 'web',
   output: {
